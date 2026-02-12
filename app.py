@@ -97,7 +97,7 @@ if prompt := st.chat_input("Analyze Phase 8 vs Precinct 10..."):
                 new_score = int(found_score.group(1))
                 st.session_state.market_score = new_score # Score update ho gaya!
         except:
-            st.session_state.market_score = NO RELEVANT SCORE # Default agar AI bhool jaye
+            st.session_state.market_score = 0 # Default agar AI bhool jaye
             
         st.markdown(full_response)
 
