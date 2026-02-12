@@ -30,16 +30,28 @@ with st.sidebar:
     
     st.markdown("---")
     st.subheader("Investor Sentiment")
-    # Gauge Chart for Maxout Feel
+  # Gauge Chart update for Black Fonts on the Score
     fig = go.Figure(go.Indicator(
         mode = "gauge+number",
         value = 78,
-        title = {'text': "Buying Confidence", 'font': {'color': "white"}},
-        gauge = {'axis': {'range': [None, 100], 'tickcolor': "white"},
-                 'bar': {'color': "#00ffcc"},
-                 'bgcolor': "#111111",
-                 'steps': [{'range': [0, 50], 'color': "#333"}]}))
-    fig.update_layout(paper_bgcolor='rgba(0,0,0,0)', font={'color': "white", 'family': "Arial"})
+        domain = {'x': [0, 1], 'y': [0, 1]},
+        title = {'text': "Buying Confidence", 'font': {'color': "white", 'size': 20}},
+        number = {'font': {'color': "black", 'size': 50}}, # Yahan score black ho jayega
+        gauge = {
+            'axis': {'range': [None, 100], 'tickcolor': "white"},
+            'bar': {'color': "#00ffcc"},
+            'bgcolor': "#ffffff", # Score ke peeche light background taake black font dikhe
+            'steps': [
+                {'range': [0, 50], 'color': "#888"},
+                {'range': [50, 100], 'color': "#ddd"}]
+        }
+    ))
+    
+    fig.update_layout(
+        paper_bgcolor='rgba(0,0,0,0)', 
+        plot_bgcolor='rgba(0,0,0,0)',
+        font={'color': "white"} # Baki label white rahen ge
+    )
     st.plotly_chart(fig, use_container_width=True)
 
 # 4. Intelligence Engine
