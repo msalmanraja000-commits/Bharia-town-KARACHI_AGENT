@@ -30,27 +30,27 @@ with st.sidebar:
     
     st.markdown("---")
     st.subheader("Investor Sentiment")
-  # Gauge Chart update for Black Fonts on the Score
+# Sidebar Gauge: Black Background with White Text Contrast
     fig = go.Figure(go.Indicator(
         mode = "gauge+number",
         value = 78,
-        domain = {'x': [0, 1], 'y': [0, 1]},
+        number = {'font': {'color': "white", 'size': 60}}, # Score ab White aur Bara hoga
         title = {'text': "Buying Confidence", 'font': {'color': "white", 'size': 20}},
-        number = {'font': {'color': "black", 'size': 50}}, # Yahan score black ho jayega
         gauge = {
             'axis': {'range': [None, 100], 'tickcolor': "white"},
-            'bar': {'color': "#00ffcc"},
-            'bgcolor': "#ffffff", # Score ke peeche light background taake black font dikhe
+            'bar': {'color': "#00ffcc"}, # Teal bar for professional look
+            'bgcolor': "#111111", # Dark background inside gauge
+            'bordercolor': "#333333",
             'steps': [
-                {'range': [0, 50], 'color': "#888"},
-                {'range': [50, 100], 'color': "#ddd"}]
+                {'range': [0, 100], 'color': "#000000"}] # Pure Black steps for contrast
         }
     ))
     
     fig.update_layout(
-        paper_bgcolor='rgba(0,0,0,0)', 
-        plot_bgcolor='rgba(0,0,0,0)',
-        font={'color': "white"} # Baki label white rahen ge
+        paper_bgcolor='#161b22', # Sidebar ka dark color
+        plot_bgcolor='#161b22',
+        margin=dict(l=20, r=20, t=50, b=20),
+        font={'color': "white", 'family': "Arial"}
     )
     st.plotly_chart(fig, use_container_width=True)
 
