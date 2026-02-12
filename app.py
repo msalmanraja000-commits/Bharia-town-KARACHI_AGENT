@@ -6,40 +6,20 @@ import plotly.graph_objects as go
 
 st.markdown("""
     <style>
-    /* 1. Global Dark Theme */
-    .stApp { 
-        background-color: #000000; 
-        color: #ffffff !important; 
-        font-family: 'Segoe UI', sans-serif; 
-    }
-
-    /* 2. Sidebar Force White Text & Black Background */
+    /* Global Sidebar Styling */
     [data-testid="stSidebar"] {
         background-color: #000000 !important;
-        border-right: 1px solid #333;
     }
-
-    /* Making "Elite Analytics" and all Sidebar headers Crystal White */
-    [data-testid="stSidebar"] h1, 
-    [data-testid="stSidebar"] h2, 
-    [data-testid="stSidebar"] h3, 
-    [data-testid="stSidebar"] p, 
-    [data-testid="stSidebar"] span, 
-    [data-testid="stSidebar"] label {
+    
+    /* Global White Text for Sidebar */
+    [data-testid="stSidebar"] * {
         color: #ffffff !important;
-        opacity: 1 !important;
     }
 
-    /* 3. Chat Messages Styling */
-    .stChatMessage { 
-        background-color: #111111; 
-        border: 0.5px solid #444; 
-        border-radius: 8px; 
-        padding: 15px; 
+    /* Ensuring the Chat Input is also visible */
+    .stChatInputContainer {
+        padding-bottom: 20px;
     }
-
-    /* 4. Gauge Chart Label Color */
-    .js-line { stroke: white !important; }
     </style>
     """, unsafe_allow_html=True)
 # 2. Secure Initialization
