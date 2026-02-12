@@ -22,6 +22,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # --- 3. SIDEBAR: LEAD CAPTURE ---
+# --- SIDEBAR: PROPRIETARY LEAD CAPTURE ---
 with st.sidebar:
     st.markdown("<h2 style='color:#c5a059;'>🏢 BTK Executive</h2>", unsafe_allow_html=True)
     st.write("Proprietary Investment Desk for Bahria Town Karachi.")
@@ -32,13 +33,14 @@ with st.sidebar:
         whatsapp = st.text_input("WhatsApp Number")
         interest = st.selectbox("Area", ["Precinct 1", "Sports City", "Golf City", "Bahria Paradise"])
         
-        submit = st.form_submit_button("Request ROI Analysis")
+        # YE RAHI WOH LINE JO CHANGE KARNI HAI:
+        submit = st.form_submit_button("Submit to PropTecSolutions") 
+        
         if submit:
             if name and whatsapp:
-                st.success(f"Protocol Initiated. Data transmitted to PropTecSolutions.")
+                st.success(f"Protocol Initiated. Data transmitted to PropTecSolutions Headquarters.")
             else:
-                st.warning("Please provide credentials.")
-
+                st.warning("Credential verification required.")
 # --- 4. DASHBOARD HEADER ---
 st.title("🏢 Bahria Town Karachi: AI Asset Intelligence")
 st.markdown(f"**Enterprise Protocol:** Enabled | **Market Status:** {datetime.date.today().strftime('%B, 2026')}")
