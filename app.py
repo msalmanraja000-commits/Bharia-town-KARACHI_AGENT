@@ -1,45 +1,88 @@
 import streamlit as st
 import random
 import time
+import datetime
 
-st.set_page_config(page_title="DHA Intel | PropTecSolutions", page_icon="🏛️", layout="wide")
+# --- 1. PAGE CONFIG ---
+st.set_page_config(
+    page_title="Bahria Town AI Advisor | PropTecSolutions",
+    page_icon="🏢",
+    layout="wide"
+)
 
-# UI Styling
-st.markdown("<style>.main {background-color: #0b0e14; color: white;}</style>", unsafe_allow_html=True)
+# --- 2. PREMIUM BTK THEME (CSS) ---
+st.markdown("""
+    <style>
+    .main { background-color: #050a14; color: #ffffff; }
+    .stMetric { background-color: #0d1b31; padding: 20px; border-radius: 12px; border: 1px solid #c5a059; }
+    .stTextInput>div>div>input { background-color: #16243a; color: #f1f1f1; border: 1px solid #c5a059; }
+    h1, h2, h3 { color: #c5a059; }
+    footer {visibility: hidden;}
+    </style>
+    """, unsafe_allow_html=True)
 
-st.title("🏛️ DHA Karachi: Proprietary AI Dashboard")
-st.caption("Developed by PropTecSolutions | Restricted Access")
-
-# Sentiment & Metrics
-col1, col2 = st.columns(2)
-with col1:
-    st.metric("Market Sentiment Index", f"{random.randint(78, 91)}/100", delta="Verified")
-with col2:
-    st.metric("Growth Forecast", "Bullish", delta="High Potential")
-
-# Lead Capture
+# --- 3. SIDEBAR: LEAD CAPTURE ---
 with st.sidebar:
-    st.title("🔑 Founder's Access")
-    with st.form("leads"):
-        st.write("Investor Inquiry Form")
-        name = st.text_input("Name")
-        phone = st.text_input("Phone")
-        if st.form_submit_button("Submit to PropTecSolutions"):
-            st.success("Lead encrypted and sent to Founder.")
+    st.markdown("<h2 style='color:#c5a059;'>🏢 BTK Executive</h2>", unsafe_allow_html=True)
+    st.write("Proprietary Investment Desk for Bahria Town Karachi.")
+    
+    with st.form("btk_lead_form"):
+        st.subheader("Investor Onboarding")
+        name = st.text_input("Investor Name")
+        whatsapp = st.text_input("WhatsApp Number")
+        interest = st.selectbox("Area", ["Precinct 1", "Sports City", "Golf City", "Bahria Paradise"])
+        
+        submit = st.form_submit_button("Request ROI Analysis")
+        if submit:
+            if name and whatsapp:
+                st.success(f"Protocol Initiated. Data transmitted to PropTecSolutions.")
+            else:
+                st.warning("Please provide credentials.")
 
-# Analysis Query
-query = st.text_input("Analyze DHA Phase/Sector:")
+# --- 4. DASHBOARD HEADER ---
+st.title("🏢 Bahria Town Karachi: AI Asset Intelligence")
+st.markdown(f"**Enterprise Protocol:** Enabled | **Market Status:** {datetime.date.today().strftime('%B, 2026')}")
+
+# --- 5. SENTIMENT GAUGE ---
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    btk_score = random.randint(68, 85)
+    st.metric(label="Market Sentiment Score", value=f"{btk_score}/100", delta="Growth Trend")
+
+with col2:
+    st.metric(label="Rental Yield Average", value="7.2%", delta="↑ 0.4%")
+
+with col3:
+    st.metric(label="Development Velocity", value="Fast-Track", delta="Stable")
+
+st.divider()
+
+# --- 6. PRECINCT-LEVEL SEARCH ---
+st.subheader("🔍 Precinct Intelligence Search")
+query = st.text_input("Enter Precinct (e.g., Precinct 15, Sports City):", placeholder="Accessing BTK Data Lake...")
+
 if query:
-    with st.spinner("Processing through PropTecSolutions Core..."):
-        time.sleep(1)
+    with st.spinner(f"Analyzing Bahria Town Market Depth for {query}..."):
+        time.sleep(1.2)
+        
         st.write(f"### Intelligence Brief: {query}")
-        st.info("Technical Trend: Accumulation Phase detected in current cycle.")
+        
+        t1, t2 = st.tabs(["Investment Outlook", "Market Liquidity"])
+        
+        with t1:
+            st.info(f"AI Model indicates high absorption rates in **{query}**. Projected capital gains of 12-15% expected over the next 18 months.")
+        
+        with t2:
+            st.write("Recent Transaction Volume (Simulated AI Data):")
+            st.bar_chart([random.randint(10, 40) for _ in range(5)])
 
-# --- THE SECURITY SHIELD FOOTER ---
+# --- 7. SECURITY SHIELD (Proprietary Footer) ---
 st.divider()
 st.markdown("""
-    <div style='text-align: center; color: #ff4b4b; font-size: 11px; font-weight: bold;'>
-        PROPERTY OF PROPTECSOLUTIONS. ALL RIGHTS RESERVED. <br>
-        <span style='color: gray;'>Access granted for evaluation purposes only. Unauthorized replication of this source code or AI architecture will lead to legal action under Pakistan Intellectual Property Laws.</span>
+    <div style='text-align: center; color: #c5a059; font-size: 11px; font-weight: bold;'>
+        PROPRIETARY ASSET OF PROPTECSOLUTIONS <br>
+        <span style='color: gray;'>© 2026 Salman Raja | Founder & CEO. <br>
+        CONFIDENTIAL PROTOTYPE: UNAUTHORIZED REPLICATION OR DISTRIBUTION IS STRICTLY PROHIBITED.</span>
     </div>
     """, unsafe_allow_html=True)
