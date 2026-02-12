@@ -37,7 +37,7 @@ with st.sidebar:
 # Sidebar Gauge: Black Background with White Text Contrast
     fig = go.Figure(go.Indicator(
         mode = "gauge+number",
-        value = 78,
+        value = 0,
         number = {'font': {'color': "white", 'size': 60}}, # Score ab White aur Bara hoga
         title = {'text': "Buying Confidence", 'font': {'color': "white", 'size': 20}},
         gauge = {
@@ -97,13 +97,13 @@ if prompt := st.chat_input("Analyze Phase 8 vs Precinct 10..."):
                 new_score = int(found_score.group(1))
                 st.session_state.market_score = new_score # Score update ho gaya!
         except:
-            st.session_state.market_score = 78 # Default agar AI bhool jaye
+            st.session_state.market_score = NO RELEVANT SCORE # Default agar AI bhool jaye
             
         st.markdown(full_response)
 
 # --- Sidebar mein Gauge Chart ko update karein ---
 if "market_score" not in st.session_state:
-    st.session_state.market_score = 78 # Shuruat mein 78
+    st.session_state.market_score = 0 # Shuruat mein 0
 
 # Gauge Chart mein value ko session_state se connect karein
 fig.add_trace(go.Indicator(
