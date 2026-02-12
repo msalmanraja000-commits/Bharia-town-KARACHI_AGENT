@@ -33,8 +33,8 @@ with st.sidebar:
         whatsapp = st.text_input("WhatsApp Number")
         interest = st.selectbox("Area", ["Precinct 1", "Sports City", "Golf City", "Bahria Paradise"])
         
-        # YE RAHI WOH LINE JO CHANGE KARNI HAI:
-        submit = st.form_submit_button("Submit to PropTecSolutions") 
+       # Is line ko apni Bahria file mein update karein
+submit = st.form_submit_button("Submit to PropTecSolutions")
         
         if submit:
             if name and whatsapp:
