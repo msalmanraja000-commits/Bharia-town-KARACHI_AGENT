@@ -1,50 +1,91 @@
 import streamlit as st
-import random
-import time
 
-# --- 1. PAGE CONFIG ---
-st.set_page_config(page_title="BTK Advisor | PropTecSolutions", page_icon="🏢", layout="wide")
+# ==========================================
+# 1. PAGE CONFIGURATION (BTK Branding)
+# ==========================================
+st.set_page_config(
+    page_title="BTK AI Intelligence | PropTecSolutions",
+    page_icon="🏙️",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
 
-# --- 2. THE SECRET SHIELD (Is se GitHub Icon gayab hoga) ---
+# ==========================================
+# 2. THE SECURITY & BRANDING SHIELD (CSS)
+# ==========================================
 st.markdown("""
     <style>
-    /* Sab kuch hide karne ke liye */
-    #MainMenu {visibility: hidden;}
-    header {visibility: hidden;}
-    footer {visibility: hidden;}
-    .stAppDeployButton {display:none;}
+    /* GitHub aur Streamlit Menu hide karne ke liye */
+    [data-testid="stHeader"] {display: none !important;}
+    header {visibility: hidden !important;}
+    #MainMenu {visibility: hidden !important;}
+    .stAppDeployButton {display: none !important;}
     
-    /* Theme Colors */
-    .main {background-color: #050a14; color: white;}
-    .stMetric {background-color: #0d1b31; border: 1px solid #c5a059;}
+    /* Custom Footer (Copyright System) */
+    footer {display: none !important;}
+    .custom-footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #0E1117;
+        color: #FAFAFA;
+        text-align: center;
+        padding: 8px;
+        font-size: 14px;
+        font-weight: bold;
+        border-top: 1px solid #FFD700; /* Gold border for Bahria Luxury feel */
+        z-index: 999;
+    }
+    
+    .stApp {
+        margin-bottom: 50px;
+    }
     </style>
+    
+    <div class="custom-footer">
+        © 2026 PropTecSolutions | Bahria Town Karachi AI Intelligence | Proprietary Rights Reserved.
+    </div>
     """, unsafe_allow_html=True)
 
-# --- 3. SIDEBAR WITH BRANDING ---
+# ==========================================
+# 3. SIDEBAR (BTK Advisor Branding)
+# ==========================================
 with st.sidebar:
-    st.title("🏢 BTK Executive")
-    with st.form("leads"):
-        st.write("Investor Inquiry Form")
-        name = st.text_input("Name")
-        phone = st.text_input("WhatsApp")
-        # BUTTON UPDATED HERE:
-        if st.form_submit_button("Submit to PropTecSolutions"):
-            st.success("Data secured by PropTecSolutions.")
+    st.header("PropTecSolutions")
+    st.write("Project: **BTK AI Advisor**")
+    st.write("Lead Developer: **Salman Raja**")
+    st.markdown("---")
+    st.warning("Confidential Intelligence for BTK Investors.")
 
-# --- 4. CONTENT ---
-st.title("🏢 Bahria Town Karachi: AI Advisor")
+# ==========================================
+# 4. MAIN INTERFACE (BTK Logic)
+# ==========================================
+st.title("🏙️ BTK Strategic Intelligence")
+st.markdown("### Real-Time Precinct Analysis & Investment Forecasting")
+
+# --- BTK SPECIFIC INPUTS ---
 col1, col2 = st.columns(2)
 with col1:
-    st.metric("Asset Sentiment", f"{random.randint(70, 85)}/100", delta="Market Growth")
+    category = st.selectbox("Property Category:", ["Residential Plots", "Commercial", "Apartments", "Villas"])
 with col2:
-    st.metric("Yield Accuracy", "94.2%", delta="AI Verified")
+    precinct = st.text_input("Enter Precinct Number (e.g. Precinct 10-A, P-31):")
 
-query = st.text_input("Search Precinct/Sector:")
-if query:
-    with st.spinner("Analyzing..."):
-        time.sleep(1)
-        st.success(f"Strategy for {query}: Highly recommended hold.")
+if st.button("Analyze BTK Market"):
+    if precinct:
+        with st.spinner('Scanning Bahria Town Market Data...'):
+            # ---------------------------------------------------------
+            # >>> AAPKA BTK DATA / SCRAPING LOGIC YAHAN AAYEGA <<<
+            # ---------------------------------------------------------
+            st.success(f"Market Report for {category} in {precinct}")
+            st.info("Status: **Highly Liquid Area**")
+            st.write("Recommended Action: **Medium-Term Hold for 25% Gains**")
+            # ---------------------------------------------------------
+    else:
+        st.error("Please enter a Precinct number to continue.")
 
-# --- 5. FOOTER ---
-st.divider()
-st.markdown("<div style='text-align: center; color: #c5a059; font-weight: bold;'>PROPRIETARY ASSET OF PROPTECSOLUTIONS</div>", unsafe_allow_html=True)
+# ==========================================
+# 5. LEGAL & COPYRIGHT PROTECTION
+# ==========================================
+st.markdown("---")
+st.error("🔒 **Proprietary Notice:** This system is the intellectual property of PropTecSolutions. Any unauthorized access to the underlying code or logic via reverse engineering is a violation of copyright law.")
