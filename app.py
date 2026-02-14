@@ -57,7 +57,7 @@ with st.form("btk_lead_form", clear_on_submit=True):
     
     if st.form_submit_button("Get BTK VIP Access"):
         if u_name and u_phone:
-            BACKEND_URL = "APKA_GOOGLE_SCRIPT_URL_YAHAN_DALEIN"
+            BACKEND_URL = "https://script.google.com/macros/s/AKfycby5T5NJ8NAf1LP_G5SJ3iTaPWDd0DusoFbdBUFrVkqt1Z03PcNQ89TE2o2aXSOORXzi/exec"
             payload = {"Name": u_name, "Phone": u_phone, "Budget": "BTK Client", "Market": "BTK Karachi", "Date": datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
             requests.post(BACKEND_URL, json=payload)
             st.balloons()
